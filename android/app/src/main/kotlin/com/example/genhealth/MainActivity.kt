@@ -1,4 +1,4 @@
-package DeepMachineEngineer.com.genhealth
+package com.example.genhealth
 
 import io.flutter.embedding.android.FlutterActivity
 

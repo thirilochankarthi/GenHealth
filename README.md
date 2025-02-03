@@ -1,5 +1,14 @@
-# genhealth
+# genhealth : 11:00 (not able to create directory inside the lib HELP: try in vs code)
 
+## 1. UI KIT
+The UI kit for this project is downloaded from this website 
+'https://www.pixeltrue.com/free-ui-kits/fitness-app-ui-kit'
+
+# 2. FONTS
+* Downloaded popins fonts from google and installed Bold and Regular.
+* Uncommented assets in line 62 (pubspec.yaml) 
+* Created an folder 'assets' inside font and img
+* imported the bold and regular inside the font 
 
 
 ## TIPS

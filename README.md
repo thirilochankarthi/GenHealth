@@ -1,4 +1,8 @@
-# genhealth : 11:00 (not able to create directory inside the lib HELP: try in vs code)
+# genhealth : 41:00 (4 pages Maded Initial)
+
+# extension Installed: 
+1. Awesome Flutter Snippets
+2. 
 
 ## 1. UI KIT
 The UI kit for this project is downloaded from this website 

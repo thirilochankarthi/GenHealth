@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:genhealth/common/colo_extenstion.dart';
+import 'package:genhealth/view/login/signup_view.dart';
 import 'package:genhealth/view/on_boarding/on_boarding_view.dart';
+import 'package:genhealth/view/on_boarding/started_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +36,8 @@ class MyApp extends StatelessWidget {
         primaryColor: TColor.primaryColor1,
         fontFamily: "Poppins"
       ),
-      home: const OnBoardingView(),
+      //home: const OnBoardingView(),
+      home: const SignUpView(),
     );
   }
 }

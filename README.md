@@ -1,4 +1,8 @@
-# genhealth : 41:00 (4 pages Maded Initial)
+# genhealth : 40:30 (Upto welcome screen) v2
+
+# Issues
+
+1. signup_view.dart - line 180
 
 # extension Installed: 
 1. Awesome Flutter Snippets

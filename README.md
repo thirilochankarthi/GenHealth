@@ -1,4 +1,5 @@
-# genhealth : 40:30 (Upto welcome screen) v2
+# genhealth : 00:00 () v5
+
 
 # Issues
 
@@ -6,7 +7,7 @@
 
 # extension Installed: 
 1. Awesome Flutter Snippets
-2. 
+2. pub.dev/packages/TO be installed
 
 ## 1. UI KIT
 The UI kit for this project is downloaded from this website 

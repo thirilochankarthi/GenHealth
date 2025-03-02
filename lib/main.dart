@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
       ),
       //home: const OnBoardingView(),
       home: const SignUpView(),
+      // home: const StartedView(),
     );
   }
 }

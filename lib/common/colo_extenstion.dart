@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class TColor {
@@ -15,5 +16,7 @@ class TColor {
   static Color get gray => const Color(0xff786F72);
   static Color get white => Colors.white;
   static Color get lightGray => const Color(0xffF7F8F8);
+
+
 
 }

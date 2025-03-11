@@ -1,13 +1,11 @@
 import 'package:genhealth/common/colo_extenstion.dart';
 import 'package:genhealth/common_widget/tab_button.dart';
-import 'package:genhealth/view/home/blank_view.dart';
 import 'package:genhealth/view/main_tab/select_view.dart';
 import 'package:flutter/material.dart';
 
 import '../home/home_view.dart';
 import '../photo_progress/photo_progress_view.dart';
 import '../profile/profile_view.dart';
-import 'package:genhealth/view/workout_tracker/workout_tracker_view.dart';
 
 class MainTabView extends StatefulWidget {
   const MainTabView({super.key});

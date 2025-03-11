@@ -1,5 +1,6 @@
-# genhealth : 00:00 () v5
+# genhealth : 02:00 () v17
 
+# dev_lin v13
 
 # Issues
 
@@ -8,6 +9,8 @@
 # extension Installed: 
 1. Awesome Flutter Snippets
 2. pub.dev/packages/TO be installed
+3. Google Symbols and Icon : https://fonts.google.com/icons
+4. 
 
 ## 1. UI KIT
 The UI kit for this project is downloaded from this website 

@@ -1,12 +1,19 @@
 
-import 'package:genhealth/view/main_tab/main_tab_view.dart';
 import 'package:flutter/material.dart';
-import 'package:genhealth/view/on_boarding/on_boarding_view.dart';
 import 'package:genhealth/view/on_boarding/started_view.dart';
+
 
 import 'common/colo_extenstion.dart';
 
+import 'package:genhealth/back_end/chat_screen.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+
 void main() {
+  // Initialize the FFI (required for desktop usage)
+  sqfliteFfiInit();
+
+  // Set the global database factory to the FFI implementation.
+  databaseFactory = databaseFactoryFfi;
   runApp(const MyApp());
 }
 
@@ -32,9 +39,8 @@ class MyApp extends StatelessWidget {
         primaryColor: TColor.primaryColor1,
         fontFamily: "Poppins"
       ),
-      //home: const MainTabView(),
-      //home: const OnBoardingView(),
       home: const StartedView(), 
+      //home: const ChatScreen(),
     );
   }
 }

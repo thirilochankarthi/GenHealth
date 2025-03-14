@@ -2,9 +2,19 @@
 
 # dev_lin v13
 
-# Issues
+# BACKEND
+1. adding dependencies
+dependencies:
+  flutter:
+    sdk: flutter
+  sqflite: ^2.0.0+4       # SQLite support
+  path_provider: ^2.0.11  # Helps locate device paths
+  path: ^1.8.2           # Required for constructing file paths
+  http: ^0.13.5          # For API calls to groqcloud
 
-1. signup_view.dart - line 180
+
+
+# Issues
 
 # extension Installed: 
 1. Awesome Flutter Snippets

@@ -39,8 +39,8 @@ class MyApp extends StatelessWidget {
         primaryColor: TColor.primaryColor1,
         fontFamily: "Poppins"
       ),
-      home: const StartedView(), 
-      //home: const ChatScreen(),
+      //home: const StartedView(), 
+      home: const ChatScreen(),
     );
   }
 }

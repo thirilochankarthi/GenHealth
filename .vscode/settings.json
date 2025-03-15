@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "C:/Users/thiri/AndroidStudioProjects/GenHealth/linux"
+    "cmake.sourceDirectory": "C:/Users/thiri/AndroidStudioProjects/GenHealth/linux",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

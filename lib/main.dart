@@ -1,46 +1,50 @@
-
 import 'package:flutter/material.dart';
+import 'package:genhealth/hive_helper.dart';
+import 'package:genhealth/models/health_data.dart';
 import 'package:genhealth/view/on_boarding/started_view.dart';
-
-
 import 'common/colo_extenstion.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'chat_screen.dart';
 
-import 'package:genhealth/back_end/chat_screen.dart';
-import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  await Hive.initFlutter(); // Initialize Hive
+  Hive.registerAdapter(HealthDataAdapter()); // Register the adapter
+  await Hive.openBox('healthData'); // Open Hive Box
+  
+  // Insert sample health data
+  List<HealthData> sampleData = [
+    HealthData(metric: "Heart Rate", value: 72, timestamp: DateTime.now().toString()),
+    HealthData(metric: "Blood Pressure", value: 120.80, timestamp: DateTime.now().toString()),
+    HealthData(metric: "Body Temperature", value: 36.5, timestamp: DateTime.now().toString()),
+    HealthData(metric: "Steps Count", value: 8500, timestamp: DateTime.now().toString()),
+    HealthData(metric: "Calorie Intake", value: 2200, timestamp: DateTime.now().toString()),
+  ];
 
-void main() {
-  // Initialize the FFI (required for desktop usage)
-  sqfliteFfiInit();
+  for (var data in sampleData) {
+    await HiveHelper().insertHealthData(data);
+  }
 
-  // Set the global database factory to the FFI implementation.
-  databaseFactory = databaseFactoryFfi;
+  var records = HiveHelper().fetchAllHealthData();
+  
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Fitness 3 in 1',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primaryColor: TColor.primaryColor1,
-        fontFamily: "Poppins"
+        fontFamily: "Poppins",
       ),
-      //home: const StartedView(), 
-      home: const ChatScreen(),
+      //home: const StartedView(),
+      home: const ChatScreen(), // Start with ChatScreen
     );
   }
 }

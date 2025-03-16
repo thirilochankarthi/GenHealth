@@ -4,6 +4,7 @@ import 'groq_api_service.dart';
 import 'hive_helper.dart';
 import 'models/health_data.dart';
 
+
 class ChatMessage {
   final String message;
   final bool isUser;

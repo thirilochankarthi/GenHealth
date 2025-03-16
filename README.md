@@ -7,10 +7,13 @@
 dependencies:
   flutter:
     sdk: flutter
-  sqflite: ^2.0.0+4       # SQLite support
-  path_provider: ^2.0.11  # Helps locate device paths
-  path: ^1.8.2           # Required for constructing file paths
-  http: ^0.13.5          # For API calls to groqcloud
+  hive: ^2.2.3  # Hive database package
+  hive_flutter: ^1.1.0  # Hive integration for Flutter
+  path_provider: ^2.1.2  # Required for locating storage directories
+  http: ^0.13.6  # For API calls (already in use)
+dev_dependencies:
+  hive_generator: ^2.0.1  # Required for generating Hive adapters (if using custom objects)
+  build_runner: ^2.4.6  # Required for running Hive code generation
 
 
 

@@ -50,6 +50,8 @@ dependencies:
   hive_flutter: ^1.1.0  # Hive integration for Flutter
   path_provider: ^2.1.2  # Required for locating storage directories
   http: ^0.13.6  # For API calls (already in use)
+  hive_ui: ^1.0.14 # Hive Inspector
+  share_plus: ^10.1.4
 
 dependency_overrides:
   intl: ^0.20.2

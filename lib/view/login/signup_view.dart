@@ -1,9 +1,11 @@
 import 'package:genhealth/common/colo_extenstion.dart';
 import 'package:genhealth/common_widget/round_button.dart';
 import 'package:genhealth/common_widget/round_textfield.dart';
+import 'package:genhealth/models/user_data.dart';
 import 'package:genhealth/view/login/complete_profile_view.dart';
 import 'package:genhealth/view/login/login_view.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -14,6 +16,11 @@ class SignUpView extends StatefulWidget {
 
 class _SignUpViewState extends State<SignUpView> {
   bool isCheck = false;
+  final _firstNameController = TextEditingController();
+  final _lastNameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
@@ -40,21 +47,24 @@ class _SignUpViewState extends State<SignUpView> {
                 SizedBox(
                   height: media.width * 0.05,
                 ),
-                const RoundTextField(
+                RoundTextField(
+                  controller: _firstNameController,
                   hitText: "First Name",
                   icon: "assets/img/user_text.png",
                 ),
                 SizedBox(
                   height: media.width * 0.04,
                 ),
-                const RoundTextField(
+                RoundTextField(
+                  controller: _lastNameController,
                   hitText: "Last Name",
                   icon: "assets/img/user_text.png",
                 ),
                 SizedBox(
                   height: media.width * 0.04,
                 ),
-                const RoundTextField(
+                RoundTextField(
+                  controller: _emailController,
                   hitText: "Email",
                   icon: "assets/img/email.png",
                   keyboardType: TextInputType.emailAddress,
@@ -63,6 +73,7 @@ class _SignUpViewState extends State<SignUpView> {
                   height: media.width * 0.04,
                 ),
                 RoundTextField(
+                  controller: _passwordController,
                   hitText: "Password",
                   icon: "assets/img/lock.png",
                   obscureText: true,
@@ -81,7 +92,6 @@ class _SignUpViewState extends State<SignUpView> {
                           ))),
                 ),
                 Row(
-                  // crossAxisAlignment: CrossAxisAlignment.,
                   children: [
                     IconButton(
                       onPressed: () {
@@ -99,20 +109,33 @@ class _SignUpViewState extends State<SignUpView> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8),
-                      child:  Text(
-                          "By continuing you accept our Privacy Policy and\nTerm of Use",
-                          style: TextStyle(color: TColor.gray, fontSize: 10),
-                        ),
-                     
+                      child: Text(
+                        "By continuing you accept our Privacy Policy and\nTerm of Use",
+                        style: TextStyle(color: TColor.gray, fontSize: 10),
+                      ),
                     )
                   ],
                 ),
                 SizedBox(
                   height: media.width * 0.4,
                 ),
-                RoundButton(title: "Register", onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const CompleteProfileView()  ));
-                }),
+                RoundButton(
+                    title: "Register",
+                    onPressed: () async {
+                      var box = await Hive.openBox<UserData>('userBox');
+                      var user = UserData(
+                        firstName: _firstNameController.text,
+                        lastName: _lastNameController.text,
+                        email: _emailController.text,
+                        password: _passwordController.text,
+                      );
+                      await box.add(user);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const CompleteProfileView()));
+                    }),
                 SizedBox(
                   height: media.width * 0.04,
                 ),
@@ -162,11 +185,9 @@ class _SignUpViewState extends State<SignUpView> {
                         ),
                       ),
                     ),
-
-                     SizedBox(
+                    SizedBox(
                       width: media.width * 0.04,
                     ),
-
                     GestureDetector(
                       onTap: () {},
                       child: Container(
@@ -195,7 +216,7 @@ class _SignUpViewState extends State<SignUpView> {
                 ),
                 TextButton(
                   onPressed: () {
-                     Navigator.push(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const LoginView()));

@@ -1,5 +1,7 @@
+import 'package:genhealth/chat_screen.dart';
 import 'package:genhealth/common/colo_extenstion.dart';
 import 'package:genhealth/common_widget/tab_button.dart';
+import 'package:genhealth/conversation_screen.dart';
 import 'package:genhealth/view/main_tab/select_view.dart';
 import 'package:flutter/material.dart';
 
@@ -24,11 +26,19 @@ class _MainTabViewState extends State<MainTabView> {
       backgroundColor: TColor.white,
       body: PageStorage(bucket: pageBucket, child: currentTab),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
       floatingActionButton: SizedBox(
         width: 70,
         height: 70,
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ChatScreen()
+                ),
+            );
+          },
           child: Container(
             width: 65,
             height: 65,
@@ -40,12 +50,14 @@ class _MainTabViewState extends State<MainTabView> {
                 boxShadow: const [
                   BoxShadow(
                       color: Colors.black12,
-                      blurRadius: 2,)
+                      blurRadius: 2,
+                    )
                 ]),
             child: Icon(Icons.search,color: TColor.white, size: 35, ),
           ),
         ),
       ),
+      
       bottomNavigationBar: BottomAppBar(
           child: Container(
         decoration: BoxDecoration(color: TColor.white, boxShadow: const [

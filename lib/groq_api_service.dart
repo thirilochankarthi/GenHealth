@@ -4,7 +4,7 @@ import 'hive_helper.dart';
 import 'models/health_data.dart';
 
 class GroqApiService {
-  static const String _apiKey = String.fromEnvironment('GROQ_API_KEY');
+  static const String _apiKey = "API_KEY_HERE"; // Replace with your actual API key
   static const String _baseUrl = 'https://api.groq.com/openai/v1';
 
   Future<String> getChatCompletionWithHealthData(String userMessage) async {
